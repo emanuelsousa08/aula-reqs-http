@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js" defer></script>
     <title>Aula HTTP Requests</title>
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
-        body{display: flex;justify-content: center;align-items: center;height: 100vh;}
-        form{display: flex;flex-direction: column;width: 40%;}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+      }
     </style>
-</head>
-<body>
-    <form>
+  </head>
+  <body>
+    <!-- Form da API Viacep
+     <form>
         <label for="cep">CEP </label>
         <input type="text" id="cep">
         <label for="rua">Rua </label>
@@ -23,6 +37,15 @@
         <input type="text" id="cidade">
         <label for="estado">Estado </label>
         <input type="text" id="estado">
+    </form> -->
+
+    <form>
+      <label for="regioes">Regiões </label>
+      <select id="regioes" onchange="buscarEstados()"></select>
+      <label for="estados">Estados </label>
+      <select id="estados"></select>
+      <!-- <label for="cidades">Cidades </label>
+      <select id="cidades"></select> -->
     </form>
-</body>
+  </body>
 </html>
