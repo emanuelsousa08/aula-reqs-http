@@ -51,7 +51,5 @@ function buscarCidades() {
 }
 
 function limparCampos() {
-  regioes.innerHTML = "";
-  estados.innerHTML = "";
-  cidades.innerHTML = "";
+  form.reset();
 }
