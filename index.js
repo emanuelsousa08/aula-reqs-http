@@ -13,7 +13,9 @@
 // }
 
 function buscarRegioes() {
-  fetch("https://servicodados.ibge.gov.br/api/v1/localidades/regioes")
+  fetch(
+    "https://servicodados.ibge.gov.br/api/v1/localidades/regioes?orderBy=nome"
+  )
     .then((res) => res.json())
     .then((res) => {
       res.map((regiao) => {
@@ -25,7 +27,7 @@ buscarRegioes();
 
 function buscarEstados() {
   fetch(
-    `https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${regioes.value}/estados`
+    `https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${regioes.value}/estados?orderBy=nome`
   )
     .then((res) => res.json())
     .then((res) => {
@@ -36,15 +38,21 @@ function buscarEstados() {
     });
 }
 
-// function buscarCidades() {
-//     fetch(
-//       `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.id}/municipios`
-//     )
-//       .then((res) => res.json())
-//       .then((res) => {
-//         cidades.innerHTML = "";
-//         res.map((cidade) => {
-//           cidades.innerHTML += `<option value="${cidade.id}">${cidade.nome}</option>`;
-//         });
-//       });
-//   }
+function buscarCidades() {
+  fetch(
+    `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estados.value}/municipios?orderBy=nome`
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      cidades.innerHTML = "";
+      res.map((cidade) => {
+        cidades.innerHTML += `<option value="${cidade.id}">${cidade.nome}</option>`;
+      });
+    });
+}
+
+function limparCampos() {
+  regioes.innerHTML = "";
+  estados.innerHTML = "";
+  cidades.innerHTML = "";
+}

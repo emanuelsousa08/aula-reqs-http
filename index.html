@@ -10,17 +10,47 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        text-decoration: none;
+        list-style-type: none;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
       }
       body {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         height: 100vh;
+        background-color: lightcyan;
       }
       form {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         width: 40%;
+        background-color: white;
+        padding: 2%;
+        border-radius: 2em;
+      }
+      button {
+        display: flex;
+        margin-top: 5%;
+        background-color: rgb(252, 252, 252);
+        border: 2px solid rgb(39, 187, 187);
+        border-radius: 0.6em;
+        padding: 1%;
+        transition: 200ms;
+      }
+      button:hover {
+        background-color: rgb(26, 129, 129);
+        border: 2px solid rgb(26, 129, 129);
+        color: white;
+      }
+      select {
+        display: flex;
+        align-items: center;
+        border: 2px solid rgb(39, 187, 187);
+        border-radius: 0.6em;
       }
     </style>
   </head>
@@ -40,12 +70,13 @@
     </form> -->
 
     <form>
-      <label for="regioes">Regiões </label>
+      <label for="regioes">Região </label>
       <select id="regioes" onchange="buscarEstados()"></select>
-      <label for="estados">Estados </label>
-      <select id="estados"></select>
-      <!-- <label for="cidades">Cidades </label>
-      <select id="cidades"></select> -->
+      <label for="estados">Estado </label>
+      <select id="estados" onchange="buscarCidades()"></select>
+      <label for="cidades">Cidade </label>
+      <select id="cidades"></select>
+      <button onclick="limparCampos()">Limpar Formulário</button>
     </form>
   </body>
 </html>
